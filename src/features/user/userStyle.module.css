@@ -1,0 +1,41 @@
+.info {
+  margin-bottom: 16px;
+}
+
+.infoBody {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  gap: 20px;
+  text-align: left;
+}
+
+.subtitle {
+  text-decoration: underline;
+  font-weight: 700;
+  font-size: 14px;
+  margin-right: 6px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.companyName {
+  margin-bottom: 0;
+  font-weight: 600;
+}
+
+.companyDecspirtion {
+  margin-bottom: 0;
+  font-style: italic;
+}
+
+.posts {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.avatar {
+  width: 250px;
+  height: 250px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 14px;
+}

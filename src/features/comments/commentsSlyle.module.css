@@ -1,0 +1,21 @@
+.commentList {
+  padding: 16px 16px 0 16px;
+  border-top: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.comment {
+  padding: 16px;
+  margin-bottom: 6px;
+  background-color: aliceblue;
+  border-radius: 10px;
+}
+
+.email {
+  font-size: 15px;
+  margin-bottom: 0.3rem;
+}
+
+.body {
+  font-size: 14px;
+  margin: 0
+}
