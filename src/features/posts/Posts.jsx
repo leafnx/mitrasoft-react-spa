@@ -69,5 +69,3 @@ export default function Posts(props) {
     </div>
   )
 }
-
-// 46-52 вынести в слайс
