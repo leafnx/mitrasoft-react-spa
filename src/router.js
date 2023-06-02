@@ -1,8 +1,8 @@
 import { createBrowserRouter } from 'react-router-dom';
 
 import App from './App';
-import Posts from './features/posts/Posts';
-import User from './features/user/User';
+import PostsPage from './routes/PostsPage';
+import UserPage from './routes/UserPage';
 
 const router = createBrowserRouter([
   {
@@ -11,11 +11,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Posts />
+        element: <PostsPage />
       },
       {
         path: '/user/:userId',
-        element: <User />
+        element: <UserPage />
       },
     ]
   }

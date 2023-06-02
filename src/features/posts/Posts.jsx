@@ -1,16 +1,16 @@
-import { useDispatch, useSelector } from "react-redux"
-import { useEffect, useState } from "react"
+import { useDispatch } from "react-redux"
+import { useState } from "react"
 import { Link } from "react-router-dom";
 
 import Card from 'react-bootstrap/Card';
 import Button from "react-bootstrap/Button"
-
-import { getPostsFetch, selectPosts } from "./postsSlice"
-import { getCommentsFetch } from "../comments/commentsSlice";
-import Comments from "../comments/Comments";
 import style from './postsStyle.module.css'
 
-export function Post(props) {
+import { getCommentsFetch } from "../comments/commentsSlice";
+import Comments from "../comments/Comments";
+import Pagination from "./Pagination";
+
+function Post(props) {
   const { post } = props
   const dispatch = useDispatch()
 
@@ -40,17 +40,34 @@ export function Post(props) {
   )
 }
 
-export default function Posts() {
-  const posts = useSelector(selectPosts)
-  const dispatch = useDispatch()
+export default function Posts(props) {
+  const { posts, perPage, loading } = props
 
-  useEffect(() => {
-    dispatch(getPostsFetch())
-  }, [])
+  const [currentPage, setCurrentPage] = useState(1)
+
+  const indexOfLastPost = currentPage * perPage
+  const indexOfFirstPost = indexOfLastPost - perPage
+  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost)
+
+  const changePage = (pageNumber) => {
+    const totalPages = Math.ceil(posts.length / perPage)
+    if (pageNumber < 1 || pageNumber > totalPages) return;
+    setCurrentPage(pageNumber)
+  }
 
   return(
     <div className={style.posts}>
-      {posts.map(post => <Post key={post.id} post={post} />)}
+      <div>
+        {currentPosts.map(post => <Post key={post.id} post={post} />)}
+      </div>
+      <Pagination
+        currentPage={currentPage}
+        postsPerPage={perPage}
+        totalPosts={posts.length}
+        changePage={changePage}
+      />
     </div>
   )
 }
+
+// 46-52 вынести в слайс

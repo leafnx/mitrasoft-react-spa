@@ -5,9 +5,16 @@
 .infoBody {
   display: flex;
   flex-direction: row;
-  align-items: start;
   gap: 20px;
   text-align: left;
+}
+
+.avatar {
+  width: 250px;
+  height: 250px;
+  min-width: 250px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 14px;
 }
 
 .subtitle {
@@ -31,11 +38,4 @@
 .posts {
   max-width: 800px;
   margin: 0 auto;
-}
-
-.avatar {
-  width: 250px;
-  height: 250px;
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  border-radius: 14px;
 }
