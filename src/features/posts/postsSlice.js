@@ -25,5 +25,6 @@ export const postsSlice = createSlice({
 export const { getPostsFetch, getPostsSuccess, getPostsFailure } = postsSlice.actions;
 
 export const selectPosts = (state) => state.posts.posts;
+export const isPostsLoading = (state) => state.posts.isLoading;
 
 export default postsSlice.reducer;

@@ -30,5 +30,6 @@ export const { getUserFetch, getUserSuccess, getUserFailure } = userSlice.action
 
 export const selectUser = (state) => state.user.user;
 export const selectUserPosts = (state) => state.user.posts;
+export const isUserLoading = (state) => state.user.isLoading;
 
 export default userSlice.reducer;

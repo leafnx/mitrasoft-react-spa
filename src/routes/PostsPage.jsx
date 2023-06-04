@@ -1,11 +1,15 @@
-import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-import { getPostsFetch, selectPosts } from "../features/posts/postsSlice";
+import { getPostsFetch, isPostsLoading, selectPosts } from "../features/posts/postsSlice";
 import Posts from "../features/posts/Posts";
+import Loader from "../components/Loader";
+
+
 
 export default function PostsPage() {
   const posts = useSelector(selectPosts)
+  const isLoading = useSelector(isPostsLoading)
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -14,7 +18,7 @@ export default function PostsPage() {
 
   return(
     <div>
-      <Posts posts={posts} perPage={10} />
+      {isLoading ? <Loader /> : <Posts posts={posts} perPage={10} />}
     </div>
   )
 }

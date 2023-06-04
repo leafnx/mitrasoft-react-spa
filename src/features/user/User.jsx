@@ -1,12 +1,12 @@
-import { useEffect } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { Link, useParams } from "react-router-dom"
+import { useSelector } from "react-redux"
+import { Link } from "react-router-dom"
 
 import Card from 'react-bootstrap/Card'
 import style from './userStyle.module.css'
 
-import { getUserFetch, selectUser, selectUserPosts } from "./userSlice"
+import { selectUser, selectUserPosts } from "./userSlice"
 import Posts from "../posts/Posts"
+import GoBack from "../../components/GoBack"
 
 const Subtitle = ({children}) => {
   return(
@@ -55,18 +55,11 @@ function UserCard() {
 }
 
 export default function User() {
-  const { userId } = useParams()
-
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-    dispatch(getUserFetch(userId))
-  }, [])
-
   return(
-    <div className={style.main}>
+    <>
       <UserCard />
       <UserPosts />
-    </div>
+      <GoBack className={style.goBackBtn} />
+    </>
   )
 }
