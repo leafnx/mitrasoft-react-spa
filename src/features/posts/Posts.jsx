@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 import Card from 'react-bootstrap/Card';
 import Button from "react-bootstrap/Button"
+import Image from 'react-bootstrap/Image';
 import style from './postsStyle.module.css'
 
 import { getCommentsFetch } from "../comments/commentsSlice";
@@ -27,7 +28,7 @@ function Post(props) {
     <Card className={style.post}>
       <div className={style.postBody}>
         <Link to={`/user/${post.userId}`}>
-          <img src={avatarURL} alt='user avatar' className={style.avatar} />
+          <Image src={avatarURL} alt='user avatar' className={style.avatar} rounded />
         </Link>
         <div>
           <Card.Title>{post.title}</Card.Title>

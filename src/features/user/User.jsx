@@ -2,6 +2,7 @@ import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 
 import Card from 'react-bootstrap/Card'
+import Image from 'react-bootstrap/Image';
 import style from './userStyle.module.css'
 
 import { selectUser, selectUserPosts } from "./userSlice"
@@ -27,9 +28,9 @@ function UserCard() {
   const avatarURL = process.env.REACT_APP_USER_AVATAR_URL
 
   return(
-    <Card border='dark' className={style.info}>
+    <Card border='dark' className={style.info + ' shadow'}>
       <Card.Body className={style.infoBody}>
-        <img src={avatarURL} alt='user avatar' className={style.avatar} />
+        <Image src={avatarURL} alt='user avatar' className={style.avatar} rounded />
         <div>
           <Card.Title>{user.username}</Card.Title>
           <Card.Text>
